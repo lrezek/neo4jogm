@@ -50,7 +50,7 @@ class Neo4LaravelServiceProvider extends ServiceProvider {
         $app = $this->app;
 
         //Make and share the singleton with the application
-        $app['lrezek.neo4laravel.entitymanager'] = $app->share(function ($app) {
+        $app['lrezek.neo4laravel.entitymanager'] = $app->bind('entitymanager', function ($app) {
 
             //Register annotations with doctrine
             \Doctrine\Common\Annotations\AnnotationRegistry::registerFile(app_path() . '/../vendor/hirevoice/neo4jphp-ogm/lib/HireVoice/Neo4j/Annotation/Auto.php');
